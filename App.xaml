@@ -4,6 +4,11 @@
              xmlns:local="clr-namespace:FlashCards.Desktop"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/Styles/MainWindowBaseStyles.xaml" />
+                <ResourceDictionary Source="/Styles/UIColors.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
