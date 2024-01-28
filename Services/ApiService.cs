@@ -27,19 +27,25 @@ namespace FlashCards.Desktop.Services
         {
             await ValidationHelper.ValidateObjects(registerDTO);
 
-            await _httpClient.PostAsJsonAsync(_connectionString + nameof(Register), registerDTO);
+            var result = await _httpClient.PostAsJsonAsync(_connectionString + nameof(Register), registerDTO);
+
+            result.EnsureSuccessStatusCode();
         } 
 
         public async Task Login(LoginDTO? loginDTO)
         {
             await ValidationHelper.ValidateObjects(loginDTO);
 
-			await _httpClient.PostAsJsonAsync(_connectionString + nameof(Login), loginDTO);
+			var result = await _httpClient.PostAsJsonAsync(_connectionString + nameof(Login), loginDTO);
+
+            result.EnsureSuccessStatusCode();
 		}
 
         public async Task Logout()
         {
-            await _httpClient.GetAsync(_connectionString + nameof(Logout));
+            var result = await _httpClient.GetAsync(_connectionString + nameof(Logout));
+
+            result.EnsureSuccessStatusCode();
         }
 
         public async Task<AffectedResponse> SyncCards(List<Flashcard>? flashcards)
@@ -47,6 +53,8 @@ namespace FlashCards.Desktop.Services
             await ValidationHelper.ValidateObjects(flashcards);
 
             var responseMessage = await _httpClient.PostAsJsonAsync(_connectionString + nameof(SyncCards), flashcards);
+
+            responseMessage.EnsureSuccessStatusCode();
 
             var affectedResponse = await responseMessage.Content.ReadFromJsonAsync<AffectedResponse>();
 

@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace FlashCards.Desktop.Models
+﻿namespace FlashCards.Desktop.Models
 {
-	internal class AffectedResponse
+	public class AffectedResponse
 	{
+		public int Affected { get; set; }
 	}
 }
