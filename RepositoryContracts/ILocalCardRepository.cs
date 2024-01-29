@@ -10,6 +10,12 @@ namespace FlashCards.Desktop.RepositoryContracts
 
 		Task<IEnumerable<Flashcard>?> GetAllCards();
 
-		Task Update(Guid id, string mainSide, string oppositeSide);
+		Task UpdateCard(Guid id, string mainSide, string oppositeSide);
+
+		Task CreateCard(Flashcard flashcard);
+
+		Task DeleteCard(Guid id);
+
+		Task<Flashcard?> GetCardById(Guid id);
 	}
 }

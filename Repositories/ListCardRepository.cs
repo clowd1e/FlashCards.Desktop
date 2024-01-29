@@ -4,7 +4,7 @@ using FlashCards.Desktop.RepositoryContracts;
 
 namespace FlashCards.Desktop.Repositories
 {
-	public class ListCardRepository : IRepository<Flashcard>, ILocalCardRepository
+	public class ListCardRepository : ILocalCardRepository
 	{
 		private readonly List<Flashcard> _localFlashcardRepository = [];
 		private readonly int _maxResponseQuality;
@@ -14,18 +14,18 @@ namespace FlashCards.Desktop.Repositories
             _maxResponseQuality = maxResponseQuality;
         }
 
-        public async Task Create(Flashcard flashcard)
+        public async Task CreateCard(Flashcard flashcard)
 		{
-			flashcard.Id = Guid.NewGuid();
+			flashcard.CardId = Guid.NewGuid();
 
 			_localFlashcardRepository.Add(flashcard);
 
 			await Task.CompletedTask;
 		}
 
-		public async Task Delete(Guid id)
+		public async Task DeleteCard(Guid id)
 		{
-			_localFlashcardRepository.RemoveAll(temp => temp.Id == id);
+			_localFlashcardRepository.RemoveAll(temp => temp.CardId == id);
 
 			await Task.CompletedTask;
 		}
@@ -35,9 +35,9 @@ namespace FlashCards.Desktop.Repositories
 			return await Task.FromResult(_localFlashcardRepository);
 		}
 
-		public async Task<Flashcard?> GetById(Guid id)
+		public async Task<Flashcard?> GetCardById(Guid id)
 		{
-			return await Task.FromResult(_localFlashcardRepository.FirstOrDefault(temp => temp.Id == id));
+			return await Task.FromResult(_localFlashcardRepository.FirstOrDefault(temp => temp.CardId == id));
 		}
 
 		public async Task<IEnumerable<Flashcard>?> GetCardsToReview()
@@ -47,12 +47,12 @@ namespace FlashCards.Desktop.Repositories
 
 		public async Task ReviewCard(Guid cardId, int responseQuality)
 		{
-			var card = await GetById(cardId);
+			var card = await GetCardById(cardId);
 
 			card.RepetitionCount++;
 
-			UpdateInterRepetitionInterval(card);
-			UpdateEFactor(card, responseQuality);
+			await UpdateInterRepetitionInterval(card);
+			await UpdateEFactor(card, responseQuality);
 
 			if (responseQuality < 3)
 			{
@@ -61,9 +61,9 @@ namespace FlashCards.Desktop.Repositories
 			}
 		}
 
-		public async Task Update(Guid id, string mainSide, string oppositeSide)
+		public async Task UpdateCard(Guid id, string mainSide, string oppositeSide)
 		{
-			var card = await GetById(id);
+			var card = await GetCardById(id);
 
 			card.MainSide = mainSide;
 			card.OppositeSide = oppositeSide;
