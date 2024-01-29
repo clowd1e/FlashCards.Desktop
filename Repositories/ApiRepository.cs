@@ -1,7 +1,5 @@
-﻿using FlashCards.Desktop.Helpers;
-using FlashCards.Desktop.Models;
+﻿using FlashCards.Desktop.Models;
 using FlashCards.Desktop.Models.Identity;
-using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http.Json;
 

@@ -16,6 +16,8 @@ namespace FlashCards.Desktop.RepositoryContracts
 
 		Task DeleteCard(Guid id);
 
+		Task ResetRepository(List<Flashcard> flashcards);
+
 		Task<Flashcard?> GetCardById(Guid id);
 	}
 }

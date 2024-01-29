@@ -6,8 +6,8 @@ namespace FlashCards.Desktop.Repositories
 {
 	public class ListCardRepository : ILocalCardRepository
 	{
-		private readonly List<Flashcard> _localFlashcardRepository = [];
 		private readonly int _maxResponseQuality;
+		private List<Flashcard> _localFlashcardRepository = [];
 
         public ListCardRepository(int maxResponseQuality = 5)
         {
@@ -43,6 +43,13 @@ namespace FlashCards.Desktop.Repositories
 		public async Task<IEnumerable<Flashcard>?> GetCardsToReview()
 		{
 			return await Task.FromResult( _localFlashcardRepository.Where(temp => temp.NextRepeatDate <= DateTime.Now.ToDateOnly()));
+		}
+
+		public async Task ResetRepository(List<Flashcard> flashcards)
+		{
+			_localFlashcardRepository = flashcards;
+
+			await Task.CompletedTask;
 		}
 
 		public async Task ReviewCard(Guid cardId, int responseQuality)
