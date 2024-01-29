@@ -1,8 +1,8 @@
 ﻿namespace FlashCards.Desktop.Models
 {
-	public class Flashcard
+	public class Flashcard : IEntity
 	{
-		public Guid CardId { get; set; }
+		public Guid Id { get; set; }
 
 		public float EFactor { get; set; }
 
