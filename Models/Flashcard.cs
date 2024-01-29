@@ -1,4 +1,6 @@
-﻿namespace FlashCards.Desktop.Models
+﻿using FlashCards.Desktop.Extensions;
+
+namespace FlashCards.Desktop.Models
 {
 	public class Flashcard : IEntity
 	{
@@ -8,7 +10,7 @@
 
 		public int RepetitionCount { get; set; }
 
-		public int RepeatInDays { get; set; }
+		public DateOnly NextRepeatDate { get; set; } = DateTime.Now.ToDateOnly();
 
 		public string? MainSide { get; set; }
 

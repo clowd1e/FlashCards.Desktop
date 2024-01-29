@@ -8,8 +8,6 @@ namespace FlashCards.Desktop.RepositoryContracts
 
 		Task Delete(Guid id);
 
-		Task Update(Guid id, T entity);
-
-		Task<T> GetById(Guid id);
+		Task<T?> GetById(Guid id);
 	}
 }

@@ -6,8 +6,10 @@ namespace FlashCards.Desktop.RepositoryContracts
 	{
 		Task ReviewCard(Guid cardId, int responseQuality);
 
-		Task<IEnumerable<Flashcard>> GetCardsToReview();
+		Task<IEnumerable<Flashcard>?> GetCardsToReview();
 
-		Task<IEnumerable<Flashcard>> GetAllCards();
+		Task<IEnumerable<Flashcard>?> GetAllCards();
+
+		Task Update(Guid id, string mainSide, string oppositeSide);
 	}
 }
