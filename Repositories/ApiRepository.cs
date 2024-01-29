@@ -5,14 +5,14 @@ using Newtonsoft.Json;
 using System.Net.Http;
 using System.Net.Http.Json;
 
-namespace FlashCards.Desktop.Services
+namespace FlashCards.Desktop.Repositories
 {
-	public class ApiService
-	{
-		private readonly HttpClient _httpClient;
+    public class ApiRepository
+    {
+        private readonly HttpClient _httpClient;
         private readonly string _connectionString;
 
-        public ApiService(string? connectionString)
+        public ApiRepository(string? connectionString)
         {
             if (string.IsNullOrEmpty(connectionString))
             {
@@ -30,16 +30,16 @@ namespace FlashCards.Desktop.Services
             var result = await _httpClient.PostAsJsonAsync(_connectionString + nameof(Register), registerDTO);
 
             result.EnsureSuccessStatusCode();
-        } 
+        }
 
         public async Task Login(LoginDTO? loginDTO)
         {
             await ValidationHelper.ValidateObjects(loginDTO);
 
-			var result = await _httpClient.PostAsJsonAsync(_connectionString + nameof(Login), loginDTO);
+            var result = await _httpClient.PostAsJsonAsync(_connectionString + nameof(Login), loginDTO);
 
             result.EnsureSuccessStatusCode();
-		}
+        }
 
         public async Task Logout()
         {

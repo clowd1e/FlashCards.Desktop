@@ -17,5 +17,7 @@ namespace FlashCards.Desktop.ServiceContracts
 		Task<IEnumerable<Flashcard>> GetAllCards();
 
 		Task<Flashcard> GetCardById(Guid? id);
+
+		Task SyncWithRemoteStorage(List<Flashcard>? flashcards);
 	}
 }
