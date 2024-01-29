@@ -21,20 +21,36 @@ namespace FlashCards.Desktop.Services
 
 			if (_loggedIn)
 			{
-				throw new InvalidOperationException("Already logged in.");
+				throw new InvalidOperationException("Unalbe to log in. User is already logged in.");
 			}
 
-			await _apiRepository.Login(loginDTO);
+			var response = await _apiRepository.Login(loginDTO!);
+			response.EnsureSuccessStatusCode();
 		}
 
 		public async Task Logout()
 		{
-			throw new NotImplementedException();
+			if (!_loggedIn)
+			{
+				throw new InvalidOperationException("Unable to logout. User is not logged in.");
+			}
+
+			var response = await _apiRepository.Logout();
+			response.EnsureSuccessStatusCode();
 		}
 
 		public async Task Register(RegisterDTO? registerDTO)
-		{
-			throw new NotImplementedException();
+		{ 
+			await ValidationHelper.ValidateObjects(registerDTO);
+
+			if (_loggedIn)
+			{
+				throw new InvalidOperationException("Unable to register. User is already logged in.");
+			}
+
+			var response = await _apiRepository.Register(registerDTO!);
+
+			response.EnsureSuccessStatusCode();
 		}
 	}
 }
