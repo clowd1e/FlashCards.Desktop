@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:FlashCards.Desktop"
         xmlns:fa="http://schemas.fontawesome.io/icons/"
         mc:Ignorable="d"
-        Title="FlashCards" Height="600" Width="880"
+        Title="FlashCards" Height="500" Width="880"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
@@ -83,6 +83,83 @@
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+
+                    <!--Flash card-->
+                    <Border Background="{StaticResource flashCardBack}"
+                        Grid.Column="1" Margin="90 80" CornerRadius="20">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <Border Width="250"
+                                    Height="80"
+                                    CornerRadius="10"
+                                    Margin="0 30 0 0"
+                                    Background="{StaticResource flashCardFrontTextBack}"
+                                HorizontalAlignment="Center">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource Raleway}"
+                                           FontSize="20"
+                                    Text="Some Word"/>
+                            </Border>
+
+                            <Button Width="100" 
+                                    Height="25"
+                                    Margin="0 30 0 0"
+                                    Style="{StaticResource ShowAnserButton}"
+                                    Grid.Row="1"
+                                    Content="Show Answer">
+                                
+                            </Button>
+                        </Grid>
+                    </Border>
+                    
+                    <!--Cards left-->
+                    <TextBlock Grid.Column="2"
+                               FontFamily="{StaticResource Raleway}"
+                               FontSize="25"
+                               Margin="10 20 0 0"
+                        Foreground="White"
+                               Text="13 left" />
+
+                    <!--Edit button-->
+                    <Button Grid.Row="1" Width="60"
+                            Height="28">
+
+                    </Button>
+
+                    <StackPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
+                        <TextBlock Text="Choose response quality from 0 to 5"
+                                   HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   FontFamily="{StaticResource Raleway}"
+                                   Foreground="White"/>
+                        <StackPanel Margin="0 30 0 0"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <RadioButton Content="0"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"/>
+                            <RadioButton Content="1"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"/>
+                            <RadioButton Content="2"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"/>
+                            <RadioButton Content="3"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"/>
+                            <RadioButton Content="4"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"/>
+                            <RadioButton Content="5"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--Add button-->
+                    <Button Grid.Column="2"
+                        Grid.Row="1" Width="60"
+                            Height="28">
+
+                    </Button>
                 </Grid>
             </Border>
         </Grid>

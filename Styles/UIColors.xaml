@@ -7,6 +7,14 @@
     <SolidColorBrush x:Key="controlButtonColor1" Color="#78A3FC" />
     <SolidColorBrush x:Key="controlButtonColor2" Color="#FFC047" />
     <SolidColorBrush x:Key="controlButtonColor3" Color="#FB539B" />
+
+    <!--FlashCard Colors-->
+    <SolidColorBrush x:Key="flashCardBack" Color="#9697B2"/>
+    <SolidColorBrush x:Key="flashCardFrontTextBack" Color="White" />
+    <SolidColorBrush x:Key="showAnserButtonBack" Color="#EDF6F9" />
+
     
-    
+    <SolidColorBrush x:Key="levelButtonBack" Color="#EDF6F9" />
+
+
 </ResourceDictionary>
