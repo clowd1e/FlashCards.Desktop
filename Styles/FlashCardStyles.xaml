@@ -6,7 +6,7 @@
     </Style>
 
     <Style x:Key="ShowAnserButton" TargetType="Button">
-        <Setter Property="FontFamily" Value="{DynamicResource Raleway}" />
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
         <Setter Property="FontSize" Value="10" />
         <Setter Property="Background" Value="{DynamicResource showAnserButtonBack}" />
         <Setter Property="Template">

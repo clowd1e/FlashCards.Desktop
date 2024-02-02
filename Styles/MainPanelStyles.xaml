@@ -3,14 +3,15 @@
 
     <Style x:Key="LevelButtonStyle" TargetType="RadioButton">
         <Setter Property="Width" Value="50" />
-        <Setter Property="FontFamily" Value="{DynamicResource Raleway}" />
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="Background" Value="{DynamicResource levelButtonBack}" />
         <Setter Property="FontSize" Value="13" />
         <Setter Property="Height" Value="30" />
         <Setter Property="Margin" Value="5 0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="RadioButton">
-                    <Border CornerRadius="10" Background="{DynamicResource levelButtonBack}">
+                    <Border CornerRadius="10" Background="{TemplateBinding Background}">
                         <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
                     </Border>
                 </ControlTemplate>

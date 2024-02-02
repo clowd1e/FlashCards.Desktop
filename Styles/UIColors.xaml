@@ -11,6 +11,7 @@
     <!--FlashCard Colors-->
     <SolidColorBrush x:Key="flashCardBack" Color="#9697B2"/>
     <SolidColorBrush x:Key="flashCardFrontTextBack" Color="White" />
+    <SolidColorBrush x:Key="flashCardBackTextBack" Color="White" />
     <SolidColorBrush x:Key="showAnserButtonBack" Color="#EDF6F9" />
 
     
