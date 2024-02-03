@@ -3,10 +3,10 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:local="clr-namespace:FlashCards.Desktop.Views"
+             xmlns:local="clr-namespace:FlashCards.Desktop.Views" xmlns:viewmodels="clr-namespace:FlashCards.Desktop.ViewModels"
+             d:DataContext="{d:DesignInstance Type=viewmodels:FlashCardFrontViewModel}"
              mc:Ignorable="d">
-    <Border Background="{StaticResource flashCardBack}"
-    Grid.Column="1" Margin="90 80" CornerRadius="20">
+    <Border Background="{StaticResource flashCardBack}" Margin="90 80" CornerRadius="20">
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
@@ -23,7 +23,7 @@
                        VerticalAlignment="Center"
                        FontFamily="{StaticResource Raleway}"
                        FontSize="20"
-                Text="{Binding CardFrontSide}"/>
+                Text="{Binding CardFrontSideText}"/>
             </Border>
 
             <Button Width="100"
@@ -31,9 +31,8 @@
                 Margin="0 30 0 0"
                 Style="{StaticResource ShowAnserButton}"
                 Grid.Row="1"
-                Content="Show Answer">
-
-            </Button>
+                Content="Show Answer"
+                Command="{Binding ShowAnswer}" />
         </Grid>
     </Border>
 </UserControl>

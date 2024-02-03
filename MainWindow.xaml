@@ -6,17 +6,14 @@
         xmlns:local="clr-namespace:FlashCards.Desktop"
         xmlns:fa="http://schemas.fontawesome.io/icons/" 
         xmlns:viewmodels="clr-namespace:FlashCards.Desktop.ViewModels"
-        xmlns:views="clr-namespace:FlashCards.Desktop.Views"
+        xmlns:views="clr-namespace:FlashCards.Desktop.Views" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
         Title="FlashCards" Height="500" Width="880"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
-    <Window.DataContext>
-        <viewmodels:MainViewModel></viewmodels:MainViewModel>
-    </Window.DataContext>
-    
+
     <Border CornerRadius="10">
         <Border.Background>
             <ImageBrush ImageSource="/Images/MainBack.png" />
@@ -91,16 +88,18 @@
                     </Grid.RowDefinitions>
 
 
-                    <Grid Grid.Column="1">
-                        <Grid.Resources>
-                            <DataTemplate DataType="{x:Type viewmodels:FlashCardFrontViewModel}">
-                                <views:FlashCardFrontView></views:FlashCardFrontView>
-                            </DataTemplate>
-                            
+                    <Border Grid.Column="1">
+                        <Grid>
+                            <Grid.Resources>
+                                <DataTemplate DataType="{x:Type viewmodels:FlashCardFrontViewModel}">
+                                    <views:FlashCardFrontView></views:FlashCardFrontView>
+                                </DataTemplate>
+                            </Grid.Resources>
+
                             <ContentControl Content="{Binding CurrentFlashCard}" />
-                        </Grid.Resources>
-                    </Grid>
-                    
+                        </Grid>
+                    </Border>
+
                     <!--Flash card-->
                     <!--<Border Background="{StaticResource flashCardBack}"
                         Grid.Column="1" Margin="90 80" CornerRadius="20">

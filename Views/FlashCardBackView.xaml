@@ -1,0 +1,44 @@
+﻿<UserControl x:Class="FlashCards.Desktop.Views.FlashCardBackView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:FlashCards.Desktop.Views" xmlns:viewmodels="clr-namespace:FlashCards.Desktop.ViewModels" d:DataContext="{d:DesignInstance Type=viewmodels:FlashCardBackViewModel}"
+             mc:Ignorable="d" 
+             d:DesignWidth="528"
+             d:DesignHeight="352">
+    <Border Background="{StaticResource flashCardBack}" Margin="90 80" CornerRadius="20">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+
+            <Border Width="250"
+                    Height="50"
+                    CornerRadius="10"
+                    Margin="0 20 0 0"
+                    Background="{StaticResource flashCardFrontTextBack}"
+                    HorizontalAlignment="Center">
+                <TextBlock HorizontalAlignment="Center"
+                           VerticalAlignment="Center"
+                           FontFamily="{StaticResource Raleway}"
+                           FontSize="20"
+                           Text="{Binding CardFrontSideText}"/>
+            </Border>
+
+            <Border Grid.Row="1"
+                    Width="250"
+                    Height="80"
+                    CornerRadius="10"
+                    Margin="0 20 0 0"
+                    Background="{StaticResource flashCardBackTextBack}"
+                    HorizontalAlignment="Center">
+                <TextBlock Margin="10"
+                           FontFamily="{StaticResource Raleway}"
+                           FontSize="12"
+                           Text="{Binding CardBackSideText}"/>
+            </Border>
+        </Grid>
+    </Border>
+</UserControl>
