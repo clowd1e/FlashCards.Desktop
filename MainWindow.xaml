@@ -13,7 +13,10 @@
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
-
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    
     <Border CornerRadius="10">
         <Border.Background>
             <ImageBrush ImageSource="/Images/MainBack.png" />
@@ -94,6 +97,9 @@
                                 <DataTemplate DataType="{x:Type viewmodels:FlashCardFrontViewModel}">
                                     <views:FlashCardFrontView></views:FlashCardFrontView>
                                 </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodels:FlashCardBackViewModel}">
+                                    <views:FlashCardBackView></views:FlashCardBackView>
+                                </DataTemplate>
                             </Grid.Resources>
 
                             <ContentControl Content="{Binding CurrentFlashCard}" />
@@ -154,7 +160,8 @@
                         </Button.Content>
                     </Button>
 
-                    <StackPanel HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
+                    <StackPanel Visibility="{Binding IsFeedbackPanelVisibile, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
                         <TextBlock Text="Choose response quality from 0 to 5"
                                    HorizontalAlignment="Center"
                                    FontSize="20"
