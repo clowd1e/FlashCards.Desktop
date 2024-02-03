@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlashCards.Desktop.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,9 +9,7 @@ namespace FlashCards.Desktop.ViewModels
 {
     public class FlashCardBackViewModel : ViewModelBase
     {
-        FlashCardBackViewModel() { }
-
-        private string cardFrontSideText = "Show";
+        private string cardFrontSideText;
         public string CardFrontSideText
         {
             get { return cardFrontSideText; }
@@ -21,7 +20,7 @@ namespace FlashCards.Desktop.ViewModels
             }
         }
 
-        private string cardBackSideText = "Вистава";
+        private string cardBackSideText;
         public string CardBackSideText
         {
             get { return cardBackSideText; }
@@ -30,6 +29,12 @@ namespace FlashCards.Desktop.ViewModels
                 cardBackSideText = value;
                 OnPropertyChanged(nameof(CardBackSideText));
             }
+        }
+
+        public FlashCardBackViewModel(Flashcard flashcard)
+        {
+            CardFrontSideText = flashcard.MainSide;
+            CardBackSideText = flashcard.OppositeSide;
         }
     }
 }

@@ -1,4 +1,7 @@
-﻿using System;
+﻿using FlashCards.Desktop.Commands;
+using FlashCards.Desktop.Models;
+using FlashCards.Desktop.Stores;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +24,11 @@ namespace FlashCards.Desktop.ViewModels
         }
 
         public ICommand ShowAnswer { get; }
-        public FlashCardFrontViewModel(string frontText)
+        public FlashCardFrontViewModel(NavigationStore navigationStore, MainViewModel mainViewModel, Flashcard flashcard)
         {
-            CardFrontSideText = frontText;
+            CardFrontSideText = flashcard.MainSide;
 
-            ShowAnswer = new ShowAnswerCommand();
+            ShowAnswer = new ShowAnswerCommand(navigationStore, mainViewModel, flashcard);
         }
     }
 }

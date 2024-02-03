@@ -19,8 +19,10 @@ namespace FlashCards.Desktop.ViewModels
         public ViewModelBase CurrentFlashCard => navigationStore.CurrentFlashCard;
         public MainViewModel()
         {
+            Flashcard testFlashcard = new Flashcard() { MainSide = "Show", OppositeSide = "Allow or cause (something) to be visible." };
+            
             navigationStore = new NavigationStore();
-            navigationStore.CurrentFlashCard = new FlashCardFrontViewModel("Show");
+            navigationStore.CurrentFlashCard = new FlashCardFrontViewModel(navigationStore, this , testFlashcard);
 
             navigationStore.CurrentFlashCardChanged += OnCurrentFlashCardChanged;
         }
@@ -33,6 +35,17 @@ namespace FlashCards.Desktop.ViewModels
             {
                 leftCards = value;
                 OnPropertyChanged(nameof(LeftCards));
+            }
+        }
+
+        private bool isFeedbackPanelVisibile = false;
+        public bool IsFeedbackPanelVisibile
+        {
+            get { return isFeedbackPanelVisibile; }
+            set
+            {
+                isFeedbackPanelVisibile = value;
+                OnPropertyChanged(nameof(IsFeedbackPanelVisibile));
             }
         }
 
