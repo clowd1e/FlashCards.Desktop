@@ -3,13 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using System.Windows.Input;
 
 namespace FlashCards.Desktop.ViewModels
 {
-    public class FlashCardFrontViewModel : ViewModelBase
+    public class FlashCardBackViewModel : ViewModelBase
     {
-        private string cardFrontSideText;
+        FlashCardBackViewModel() { }
+
+        private string cardFrontSideText = "Show";
         public string CardFrontSideText
         {
             get { return cardFrontSideText; }
@@ -20,12 +21,15 @@ namespace FlashCards.Desktop.ViewModels
             }
         }
 
-        public ICommand ShowAnswer { get; }
-        public FlashCardFrontViewModel(string frontText)
+        private string cardBackSideText = "Вистава";
+        public string CardBackSideText
         {
-            CardFrontSideText = frontText;
-
-            ShowAnswer = new ShowAnswerCommand();
+            get { return cardBackSideText; }
+            set
+            {
+                cardBackSideText = value;
+                OnPropertyChanged(nameof(CardBackSideText));
+            }
         }
     }
 }

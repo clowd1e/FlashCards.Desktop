@@ -20,31 +20,9 @@ namespace FlashCards.Desktop.ViewModels
         public MainViewModel()
         {
             navigationStore = new NavigationStore();
-            navigationStore.CurrentFlashCard = new FlashCardFrontViewModel();
+            navigationStore.CurrentFlashCard = new FlashCardFrontViewModel("Show");
 
             navigationStore.CurrentFlashCardChanged += OnCurrentFlashCardChanged;
-        }
-
-        private string cardFrontSide = "Some word";
-        public string CardFrontSide
-        {
-            get { return cardFrontSide; }
-            set
-            {
-                cardFrontSide = value;
-                OnPropertyChanged(nameof(CardFrontSide));
-            }
-        }
-
-        private string cardBackSide;
-        public string CardBackSide
-        {
-            get { return cardBackSide; }
-            set
-            {
-                cardBackSide = value;
-                OnPropertyChanged(nameof(CardBackSide));
-            }
         }
 
         private string leftCards = "13 left";
