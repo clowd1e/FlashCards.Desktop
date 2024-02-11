@@ -1,4 +1,5 @@
-﻿using FlashCards.Desktop.Models;
+using FlashCards.Desktop.Commands;
+using FlashCards.Desktop.Models;
 using FlashCards.Desktop.Models.Identity;
 using FlashCards.Desktop.Repositories;
 using FlashCards.Desktop.RepositoryContracts;
@@ -9,6 +10,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Input;
 
 namespace FlashCards.Desktop.ViewModels
 {
@@ -17,12 +19,18 @@ namespace FlashCards.Desktop.ViewModels
         private readonly NavigationStore navigationStore;
 
         public ViewModelBase CurrentFlashCard => navigationStore.CurrentFlashCard;
+
+        public ICommand Rate { get; }
+
         public MainViewModel()
         {
             Flashcard testFlashcard = new Flashcard() { MainSide = "Show", OppositeSide = "Allow or cause (something) to be visible." };
+            Flashcard secondTestFlashcard = new Flashcard() { MainSide = "Success", OppositeSide = "The accomplishment of an aim or purpose." };
             
             navigationStore = new NavigationStore();
             navigationStore.CurrentFlashCard = new FlashCardFrontViewModel(navigationStore, this , testFlashcard);
+
+            Rate = new RateDifficultyCommand(navigationStore, this, testFlashcard, secondTestFlashcard);
 
             navigationStore.CurrentFlashCardChanged += OnCurrentFlashCardChanged;
         }
