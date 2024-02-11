@@ -1,16 +1,22 @@
-﻿<Window x:Class="FlashCards.Desktop.MainWindow"
+<Window x:Class="FlashCards.Desktop.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:FlashCards.Desktop"
-        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        xmlns:fa="http://schemas.fontawesome.io/icons/" 
+        xmlns:viewmodels="clr-namespace:FlashCards.Desktop.ViewModels"
+        xmlns:views="clr-namespace:FlashCards.Desktop.Views" d:DataContext="{d:DesignInstance Type=viewmodels:MainViewModel}"
         mc:Ignorable="d"
-        Title="FlashCards" Height="600" Width="880"
+        Title="FlashCards" Height="500" Width="880"
         WindowStartupLocation="CenterScreen"
         WindowStyle="None"
         Background="Transparent"
         AllowsTransparency="True">
+    <Window.Resources>
+        <BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter" />
+    </Window.Resources>
+    
     <Border CornerRadius="10">
         <Border.Background>
             <ImageBrush ImageSource="/Images/MainBack.png" />
@@ -83,6 +89,126 @@
                         <RowDefinition Height="3*" />
                         <RowDefinition Height="*" />
                     </Grid.RowDefinitions>
+
+
+                    <Border Grid.Column="1">
+                        <Grid>
+                            <Grid.Resources>
+                                <DataTemplate DataType="{x:Type viewmodels:FlashCardFrontViewModel}">
+                                    <views:FlashCardFrontView></views:FlashCardFrontView>
+                                </DataTemplate>
+                                <DataTemplate DataType="{x:Type viewmodels:FlashCardBackViewModel}">
+                                    <views:FlashCardBackView></views:FlashCardBackView>
+                                </DataTemplate>
+                            </Grid.Resources>
+
+                            <ContentControl Content="{Binding CurrentFlashCard}" />
+                        </Grid>
+                    </Border>
+
+                    <!--Flash card-->
+                    <!--<Border Background="{StaticResource flashCardBack}"
+                        Grid.Column="1" Margin="90 80" CornerRadius="20">
+                        <Grid>
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="auto" />
+                                <RowDefinition Height="auto" />
+                            </Grid.RowDefinitions>
+
+                            <Border Width="250"
+                                    Height="80"
+                                    CornerRadius="10"
+                                    Margin="0 30 0 0"
+                                    Background="{StaticResource flashCardFrontTextBack}"
+                                HorizontalAlignment="Center">
+                                <TextBlock HorizontalAlignment="Center"
+                                           VerticalAlignment="Center"
+                                           FontFamily="{StaticResource Raleway}"
+                                           FontSize="20"
+                                    Text="{Binding CardFrontSide}"/>
+                            </Border>
+
+                            <Button Width="100"
+                                    Height="25"
+                                    Margin="0 30 0 0"
+                                    Style="{StaticResource ShowAnserButton}"
+                                    Grid.Row="1"
+                                    Content="Show Answer">
+
+                            </Button>
+                        </Grid>
+                    </Border>-->
+                    
+                    <!--Cards left-->
+                    <TextBlock Grid.Column="2"
+                               FontFamily="{StaticResource Raleway}"
+                               FontSize="25"
+                               Margin="10 20 0 0"
+                               Foreground="White"
+                               Text="{Binding LeftCards}" />
+
+                    <!--Edit button-->
+                    <Button Grid.Row="1"
+                            Style="{StaticResource LeftAndRightButtonStyle}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Border CornerRadius="28" Background="#EDF6F9" >
+                                    <Image Source="/Images/pen.png" Margin="6" />
+                                </Border>
+                                <TextBlock Style="{StaticResource LeftAndRightButtonTextStyle}" Text="Edit" Margin="9 0 0 0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
+
+                    <StackPanel Visibility="{Binding IsFeedbackPanelVisibile, Converter={StaticResource BooleanToVisibilityConverter}}"
+                        HorizontalAlignment="Center" Grid.Row="1" Grid.Column="1">
+                        <TextBlock Text="Choose response quality from 0 to 5"
+                                   HorizontalAlignment="Center"
+                                   FontSize="20"
+                                   FontFamily="{StaticResource Raleway}"
+                                   Foreground="White"/>
+                        <StackPanel Margin="0 30 0 0"
+                            VerticalAlignment="Center" HorizontalAlignment="Center" Orientation="Horizontal">
+                            <RadioButton Content="0"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"
+                                         Command="{Binding Rate}"
+                                         CommandParameter="0"/>
+                            <RadioButton Content="1"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"
+                                         Command="{Binding Rate}"
+                                         CommandParameter="1"/>
+                            <RadioButton Content="2"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"
+                                         Command="{Binding Rate}"
+                                         CommandParameter="2"/>
+                            <RadioButton Content="3"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"
+                                         Command="{Binding Rate}"
+                                         CommandParameter="3"/>
+                            <RadioButton Content="4"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"
+                                         Command="{Binding Rate}"
+                                         CommandParameter="4"/>
+                            <RadioButton Content="5"
+                                Style="{StaticResource LevelButtonStyle}" GroupName="MenuButtons"
+                                         Command="{Binding Rate}"
+                                         CommandParameter="5"/>
+                        </StackPanel>
+                    </StackPanel>
+
+                    <!--Add button-->
+                    <Button Grid.Column="2"
+                            Grid.Row="1"
+                            Style="{StaticResource LeftAndRightButtonStyle}">
+                        <Button.Content>
+                            <StackPanel Orientation="Horizontal">
+                                <Border CornerRadius="28" Background="#EDF6F9" >
+                                    <Image Source="/Images/add.png" Margin="6" />
+                                </Border>
+                                <TextBlock Style="{StaticResource LeftAndRightButtonTextStyle}" Text="Add" Margin="9 0 0 0" />
+                            </StackPanel>
+                        </Button.Content>
+                    </Button>
                 </Grid>
             </Border>
         </Grid>

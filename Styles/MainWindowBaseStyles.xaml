@@ -36,4 +36,33 @@
         <Setter Property="Width" Value="10" />
         <Setter Property="Height" Value="10" />
     </Style>
+
+
+    <Style x:Key="LeftAndRightButtonTextStyle" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+
+    <Style x:Key="LeftAndRightButtonStyle" TargetType="Button">
+        <Setter Property="Width" Value="60" />
+        <Setter Property="Height" Value="28" />
+        <Setter Property="Background" Value="Transparent" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Background="{TemplateBinding Background}" BorderThickness="0">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Cursor" Value="Hand" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
 </ResourceDictionary>
