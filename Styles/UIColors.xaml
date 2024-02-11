@@ -1,6 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 
+    <!--Login Colors-->
+    <SolidColorBrush x:Key="loginBack" Color="White" />
+    <SolidColorBrush x:Key="loginNavButtonForeground" Color="Black" />
+
     <!--Control Colors-->
     <SolidColorBrush x:Key="controlButtonForeground" Color="White" />
     <SolidColorBrush x:Key="controlButtonMouseOverBackground" Color="Transparent" />
