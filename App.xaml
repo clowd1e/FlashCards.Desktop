@@ -8,6 +8,7 @@
                 <ResourceDictionary Source="/Styles/MainWindowBaseStyles.xaml" />
                 <ResourceDictionary Source="/Styles/FlashCardStyles.xaml" />
                 <ResourceDictionary Source="/Styles/MainPanelStyles.xaml" />
+                <ResourceDictionary Source="/Styles/LoginWindowStyles.xaml" />
                 <ResourceDictionary Source="/Styles/UIColors.xaml" />
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>

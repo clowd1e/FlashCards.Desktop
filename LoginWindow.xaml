@@ -1,0 +1,73 @@
+﻿<Window x:Class="FlashCards.Desktop.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:FlashCards.Desktop"
+        xmlns:fa="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="480" Width="535"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Background="Transparent"
+        AllowsTransparency="True"
+        MouseDown="Window_MouseDown">
+    <Border CornerRadius="10" Background="{StaticResource loginBack}">
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            
+            <!--Navigation-->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnMinimize" 
+                        Style="{StaticResource LoginNavButton}"
+                        Margin="0 3 5 0"
+                        Background="Purple"
+                        Width="20"
+                        Height="20"
+                            Click="btnMinimize_Click">
+                    <Button.Content>
+                        <fa:ImageAwesome Icon="WindowMinimize" Style="{StaticResource LoginNavButtonIcon}"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="btnClose"
+                        Style="{StaticResource LoginNavButton}"
+                        Margin="0 3 5 0"
+                        Width="20"
+                        Height="20"
+                        Background="Purple"
+                            Click="btnClose_Click">
+                    <Button.Content>
+                        <fa:ImageAwesome Icon="Close" Style="{StaticResource LoginNavButtonIcon}"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+
+            <TextBlock Grid.Row="1"
+                Margin="0 63 0 0"
+                Text="Flashcards" FontFamily="{StaticResource Raleway}"
+                       FontWeight="Regular" FontSize="40"
+                       HorizontalAlignment="Center"/>
+
+            <!--Username-->
+            <StackPanel Grid.Row="2" Margin="87 40">
+                <TextBlock Text="Username" Style="{StaticResource LoginLabelStyle}" />
+                <TextBox></TextBox>
+            </StackPanel>
+
+            <!--Password-->
+            <StackPanel Grid.Row="3" Margin="87 40">
+                <TextBlock Text="Password" Style="{StaticResource LoginLabelStyle}" />
+            </StackPanel>
+        </Grid>
+    </Border>
+</Window>
