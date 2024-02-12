@@ -31,7 +31,9 @@
     <None Remove="Fonts\Raleway\static\Raleway-Thin.ttf" />
     <None Remove="Fonts\Raleway\static\Raleway-ThinItalic.ttf" />
     <None Remove="Images\add.png" />
+    <None Remove="Images\mail.png" />
     <None Remove="Images\MainBack.png" />
+    <None Remove="Images\padlock.png" />
     <None Remove="Images\pen.png" />
     <None Remove="Images\plus.png" />
   </ItemGroup>
@@ -67,7 +69,9 @@
     <Resource Include="Fonts\Raleway\Raleway-Italic-VariableFont_wght.ttf" />
     <Resource Include="Fonts\Raleway\Raleway-VariableFont_wght.ttf" />
     <Resource Include="Images\add.png" />
+    <Resource Include="Images\mail.png" />
     <Resource Include="Images\MainBack.png" />
+    <Resource Include="Images\padlock.png" />
     <Resource Include="Images\pen.png" />
     <Resource Include="Images\plus.png" />
   </ItemGroup>
