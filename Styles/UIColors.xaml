@@ -3,7 +3,7 @@
 
     <!--Login Colors-->
     <SolidColorBrush x:Key="loginBack" Color="White" />
-    <SolidColorBrush x:Key="loginNavButtonForeground" Color="Black" />
+    <SolidColorBrush x:Key="loginNavButtonForeground" Color="White" />
 
     <!--Control Colors-->
     <SolidColorBrush x:Key="controlButtonForeground" Color="White" />
