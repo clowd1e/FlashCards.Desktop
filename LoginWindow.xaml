@@ -18,6 +18,37 @@
             <Grid.RowDefinitions>
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <!--Navigation-->
+            <StackPanel Grid.Row="0" Orientation="Horizontal" HorizontalAlignment="Right">
+                <Button x:Name="btnMinimize"
+            Style="{StaticResource LoginNavButton}"
+            Margin="0 3 5 0"
+            Background="#6f00dd"
+            Width="20"
+            Height="20"
+                Click="btnMinimize_Click">
+                    <Button.Content>
+                        <fa:ImageAwesome Icon="WindowMinimize" Style="{StaticResource LoginNavButtonIcon}"/>
+                    </Button.Content>
+                </Button>
+
+                <Button x:Name="btnClose"
+            Style="{StaticResource LoginNavButton}"
+            Margin="0 3 5 0"
+            Width="20"
+            Height="20"
+            Background="#d90000"
+                Click="btnClose_Click">
+                    <Button.Content>
+                        <fa:ImageAwesome Icon="Close" Style="{StaticResource LoginNavButtonIcon}"/>
+                    </Button.Content>
+                </Button>
+            </StackPanel>
+            <Grid Margin="87 0" Grid.Row="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
                 <RowDefinition Height="auto" />
@@ -25,41 +56,14 @@
                 <RowDefinition Height="auto" />
             </Grid.RowDefinitions>
 
-            <!--Navigation-->
-            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                <Button x:Name="btnMinimize"
-                        Style="{StaticResource LoginNavButton}"
-                        Margin="0 3 5 0"
-                        Background="#6f00dd"
-                        Width="20"
-                        Height="20"
-                            Click="btnMinimize_Click">
-                    <Button.Content>
-                        <fa:ImageAwesome Icon="WindowMinimize" Style="{StaticResource LoginNavButtonIcon}"/>
-                    </Button.Content>
-                </Button>
-
-                <Button x:Name="btnClose"
-                        Style="{StaticResource LoginNavButton}"
-                        Margin="0 3 5 0"
-                        Width="20"
-                        Height="20"
-                        Background="#d90000"
-                            Click="btnClose_Click">
-                    <Button.Content>
-                        <fa:ImageAwesome Icon="Close" Style="{StaticResource LoginNavButtonIcon}"/>
-                    </Button.Content>
-                </Button>
-            </StackPanel>
-
-            <TextBlock Grid.Row="1"
+            <TextBlock Grid.Row="0"
                 Margin="0 40 0 0"
                 Text="Flashcards" FontFamily="{StaticResource Raleway}"
                        FontWeight="Regular" FontSize="40"
                        HorizontalAlignment="Center"/>
 
             <!--Email-->
-            <StackPanel Grid.Row="2" Margin="87 40">
+            <StackPanel Grid.Row="1" Margin="0 40">
                 <TextBlock Text="Email" Style="{StaticResource LoginLabelStyle}" />
                 <Grid Margin="0 5 0 0">
                     <Grid.ColumnDefinitions>
@@ -83,7 +87,7 @@
             </StackPanel>
 
             <!--Password-->
-            <StackPanel Grid.Row="3" Margin="87 40">
+            <StackPanel Grid.Row="2" Margin="0 40">
                 <TextBlock Text="Password" Style="{StaticResource LoginLabelStyle}" />
                 <Grid>
                     <components:BindableLoginPasswordBox x:Name="PasswordBox" Password="{Binding Password, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
@@ -94,8 +98,10 @@
                 </Grid>
             </StackPanel>
 
+            <CheckBox Grid.Row="3" Content="Remember me"  />
 
-            <Button Grid.Row="4"
+
+                <Button Grid.Row="4"
                     Content="Login"
                     Style="{StaticResource LoginButton}"/>
 
@@ -114,6 +120,7 @@
                     </Button.Content>
                 </Button>
             </StackPanel>
+        </Grid>
         </Grid>
     </Border>
 </Window>
