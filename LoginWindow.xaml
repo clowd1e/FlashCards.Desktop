@@ -73,7 +73,7 @@
                     <TextBox
                         x:Name="EmailBox"
                          Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"
-                         Style="{StaticResource LoginEmailBoxStyle}" Grid.ColumnSpan="2">
+                         Style="{StaticResource LoginBoxStyle}" Grid.ColumnSpan="2">
                         <TextBox.Background>
                             <ImageBrush ImageSource="/Images/mail.png" Stretch="Uniform"
                                         AlignmentX="Left"/>
@@ -110,7 +110,7 @@
                         Orientation="Horizontal" HorizontalAlignment="Center">
                 <TextBlock Text="Don’t have account yet? "
                            Style="{StaticResource BottomText}"/>
-                <Button Style="{StaticResource SingUpButton}">
+                <Button Command="{Binding SingUp}" Style="{StaticResource SingUpButton}">
                     <Button.Content>
                         <TextBlock Text="Sing up"
                                Style="{StaticResource BottomText}"
