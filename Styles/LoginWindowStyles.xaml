@@ -28,8 +28,105 @@
 
     <Style x:Key="LoginNavButtonIcon" TargetType="fa:ImageAwesome">
         <Setter Property="Foreground" Value="{Binding Path=Foreground, RelativeSource={RelativeSource AncestorType=Button}}" />
-        <Setter Property="Width" Value="10" />
+        <Setter Property="Width" Value="7" />
         <Setter Property="VerticalAlignment" Value="Center" />
-        <Setter Property="Height" Value="10" />
+        <Setter Property="Height" Value="7" />
     </Style>
+
+    <Style x:Key="LoginBoxStyle" TargetType="TextBox">
+        <Setter Property="MaxLength" Value="30" />
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding" Value="20 0 0 0" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="0 0 0 0.5" />
+    </Style>
+
+    <Style x:Key="LoginEmailBoxPlaceholder" TargetType="{x:Type TextBlock}">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Foreground" Value="#c0c0c0" />
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Text, ElementName=EmailBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="LoginPasswordBoxStyle" TargetType="PasswordBox">
+        <Setter Property="MaxLength" Value="30" />
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="Foreground" Value="Black" />
+        <Setter Property="Padding" Value="20 0 0 0" />
+        <Setter Property="BorderBrush" Value="Black" />
+        <Setter Property="BorderThickness" Value="0 0 0 0.5" />
+    </Style>
+
+    <Style x:Key="LoginPasswordBoxPlaceholder" TargetType="{x:Type TextBlock}">
+        <Setter Property="IsHitTestVisible" Value="False" />
+        <Setter Property="Foreground" Value="#c0c0c0" />
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="Visibility" Value="Collapsed"/>
+        <Style.Triggers>
+            <DataTrigger Binding="{Binding Password, ElementName=PasswordBox}" Value="">
+                <Setter Property="Visibility" Value="Visible"/>
+            </DataTrigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="LoginButton" TargetType="Button">
+        <Setter Property="Width" Value="210" />
+        <Setter Property="Height" Value="48" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="FontWeight" Value="SemiBold" />
+        <Setter Property="Foreground" Value="White" />
+        <Setter Property="FontSize" Value="24" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                            CornerRadius="20">
+                        <Border.Background>
+                            <LinearGradientBrush StartPoint="0 0" EndPoint="1 1">
+                                <GradientStop Color="#FEAC5E" Offset="0" />
+                                <GradientStop Color="#C779D0" Offset="0.5" />
+                                <GradientStop Color="#4BC0C8" Offset="1" />
+                            </LinearGradientBrush>
+                        </Border.Background>
+
+                        <ContentPresenter VerticalAlignment="Center" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="BottomText" TargetType="TextBlock">
+        <Setter Property="FontFamily" Value="{StaticResource Raleway}" />
+        <Setter Property="FontSize" Value="12" />
+    </Style>
+
+    <Style x:Key="SingUpButton" TargetType="Button">
+        <Setter Property="Width" Value="47" />
+        <Setter Property="Height" Value="18" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Width="{TemplateBinding Width}" Height="{TemplateBinding Height}"
+                            BorderThickness="0">
+
+                        <ContentPresenter VerticalAlignment="Top" HorizontalAlignment="Center" />
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
 </ResourceDictionary>

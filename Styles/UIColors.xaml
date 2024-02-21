@@ -3,8 +3,11 @@
 
     <!--Login Colors-->
     <SolidColorBrush x:Key="loginBack" Color="White" />
-    <SolidColorBrush x:Key="loginNavButtonForeground" Color="Black" />
+    <SolidColorBrush x:Key="loginNavButtonForeground" Color="White" />
 
+    <!--Registration Colors-->
+    <SolidColorBrush x:Key="regBack" Color="White" />
+    
     <!--Control Colors-->
     <SolidColorBrush x:Key="controlButtonForeground" Color="White" />
     <SolidColorBrush x:Key="controlButtonMouseOverBackground" Color="Transparent" />

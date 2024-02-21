@@ -8,13 +8,12 @@ using System.Windows.Input;
 
 namespace FlashCards.Desktop.ViewModels
 {
-    public class LoginViewModel : ViewModelBase
+    public class RegistrationViewModel : ViewModelBase
     {
-        
-        public ICommand SingUp { get; }
-        public LoginViewModel()
+        public ICommand Submit { get; }
+        public RegistrationViewModel()
         {
-            SingUp = new ChangeToRegFormCommand(this);
+            Submit = new RegAccountCommand(this);
         }
     }
 }
