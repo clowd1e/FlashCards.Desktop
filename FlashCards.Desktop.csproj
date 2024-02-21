@@ -35,7 +35,9 @@
     <None Remove="Images\MainBack.png" />
     <None Remove="Images\padlock.png" />
     <None Remove="Images\pen.png" />
+    <None Remove="Images\phone-call.png" />
     <None Remove="Images\plus.png" />
+    <None Remove="Images\user.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -73,7 +75,9 @@
     <Resource Include="Images\MainBack.png" />
     <Resource Include="Images\padlock.png" />
     <Resource Include="Images\pen.png" />
+    <Resource Include="Images\phone-call.png" />
     <Resource Include="Images\plus.png" />
+    <Resource Include="Images\user.png" />
   </ItemGroup>
 
 </Project>
